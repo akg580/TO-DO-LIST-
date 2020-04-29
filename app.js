@@ -15,7 +15,7 @@ mongoose.connect("mongodb+srv://admin-akg:Test123@cluster0-thlpl.mongodb.net/tod
 
 const itemSchema={
   name:String
-}
+}  . 
 
 const Item=mongoose.model("Item",itemSchema);
 
@@ -139,7 +139,10 @@ app.get("/work", function(req,res){
 app.get("/about", function(req, res){
   res.render("about");
 });
-
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == ""){
+  port = 4000;
+}
+app.listen(port, function() {
+  console.log("Server started on port 4000");
 });
